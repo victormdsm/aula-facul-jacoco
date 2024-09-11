@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+demo,app.controllers,MedicoController,91,3,0,0,20,1,5,1,5,1
+demo,app.controllers,PacienteController,91,3,0,0,20,1,5,1,5,1
+demo,app.controllers,CalculaController,53,3,0,0,11,1,3,1,3,1
+demo,app.controllers,SaudeUnidadeController,91,3,0,0,20,1,5,1,5,1
+demo,app.controllers,LeitoController,108,3,0,0,24,1,6,1,6,1
+demo,app,Application,5,3,0,0,2,1,1,1,1,1
+demo,app.services,CalculaService,8,133,3,19,3,31,3,14,0,6
+demo,app.services,SaudeUnidadeService,36,3,0,0,9,1,5,1,5,1
+demo,app.services,MedicoService,36,3,0,0,9,1,5,1,5,1
+demo,app.services,LeitoService,43,3,0,0,11,1,6,1,6,1
+demo,app.services,PacienteService,36,3,0,0,9,1,5,1,5,1

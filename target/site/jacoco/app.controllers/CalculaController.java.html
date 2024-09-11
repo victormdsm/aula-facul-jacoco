@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculaController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">app.controllers</a> &gt; <span class="el_source">CalculaController.java</span></div><h1>CalculaController.java</h1><pre class="source lang-java linenums">package app.controllers;
+
+import app.services.CalculaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/api/calcula&quot;)
+<span class="fc" id="L17">public class CalculaController {</span>
+
+    @Autowired
+    private CalculaService calculaService;
+
+    @PostMapping(&quot;/soma&quot;)
+    public ResponseEntity&lt;Integer&gt; calcularSoma(@RequestBody List&lt;Integer&gt; numeros) {
+        try {
+<span class="nc" id="L25">            int soma = calculaService.soma(numeros);</span>
+<span class="nc" id="L26">            return new ResponseEntity&lt;&gt;(soma, HttpStatus.OK);</span>
+<span class="nc" id="L27">        }catch (Exception e){</span>
+<span class="nc" id="L28">            return new ResponseEntity&lt;&gt;(null,HttpStatus.BAD_REQUEST);</span>
+        }
+    }
+
+    @PostMapping(&quot;/media&quot;)
+    public ResponseEntity&lt;Double&gt; calcularMedia(@RequestBody List&lt;Integer&gt; numeros) {
+        try {
+<span class="nc" id="L35">            double media = calculaService.media(numeros);</span>
+<span class="nc" id="L36">            return new ResponseEntity&lt;&gt;(media, HttpStatus.OK);</span>
+<span class="nc" id="L37">        } catch (Exception e) {</span>
+<span class="nc" id="L38">            return new ResponseEntity&lt;&gt;(null, HttpStatus.BAD_REQUEST);</span>
+        }
+    }
+
+    @PostMapping(&quot;/maior-menor&quot;)
+    public ResponseEntity&lt;String&gt; encontrarMaiorMenor(@RequestBody List&lt;Integer&gt; numeros) {
+<span class="nc" id="L44">        int maior = calculaService.encontrarMaior(numeros);</span>
+<span class="nc" id="L45">        int menor = calculaService.encontrarMenor(numeros);</span>
+<span class="nc" id="L46">        return ResponseEntity.ok(&quot;Maior: &quot; + maior + &quot;, Menor: &quot; + menor);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
